@@ -9,7 +9,7 @@ void classifyStudents(int scores[], char targetGrade)
         if (scores[i] >= 90) {
             grade = 'A';
         }
-        else if (scores[i] > 80) {
+        else if (scores[i] >= 80) {
             grade = 'B';
         }
         else if (scores[i] >= 70) {
