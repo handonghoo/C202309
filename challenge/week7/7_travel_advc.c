@@ -11,9 +11,9 @@ int travelDays[NUMCITY][NUMPEOPLE];
 double averageDays[NUMCITY];
 
 
-int getSum(int numArray[]); // 각 도시에서 보낸 총일수 계산
-double getAverage(int numArray[]); // 각 도시에서 보낸 평균일수 계산
-int printFamousCity(double dayArray[]); // 평균일수를 기반으로 가장 인기 있는 도시를 출력
+int getSum(int numArray[],int length); // 각 도시에서 보낸 총일수 계산
+double getAverage(double numArray[], int length); // 각 도시에서 보낸 평균일수 계산
+int printFamousCity(double dayArray[], int length); // 평균일수를 기반으로 가장 인기 있는 도시를 출력
 
 int main() {
 	// 사용자로부터 도시 이름 입력받기
@@ -43,8 +43,11 @@ void calculateTravelDays() {
 		}
 	}
 
+	
+
 	// 각 도시별 총 일 수 및 평균 일 수 계산및 출력
-	// 각 도시별 평균 일 수 
+
+
 	for (int i = 0; i < NUMPEOPLE; i++) {
 		double averageDay = getAverage(travelDays[i], NUMPEOPLE);
 		int totalDay = getSum(travelDays[i], NUMPEOPLE);
@@ -78,11 +81,15 @@ int getSum(int numArray[], int length)
 	 return averageDays;
 	}
 
- int printFamousCity(double dayArray[]) {
+ int printFamousCity(double dayArray[], int length) {
 	 double maxDay = 0;
 	 int maxDayIndex = 0;
 	 for (int i = 0; i < length; i++) {
-	 
+		 if (dayArray[i] > maxDay) {
+			 maxDay = dayArray[i];
+			 maxDayIndex = i;
+		 }
 	 }
+	 printf("평균일 기준으로 가장 인기있었던 도시는 %s입니다. (평균머문일 : %.2f)\n", cities[maxDayIndex], maxDay);
  }
 
