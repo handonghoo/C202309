@@ -7,7 +7,10 @@ void division(double* a, double* b, double* result);
 
 
 int main() {
-	double a = 2, b = 3;
+	double a;
+	double b;
+	scanf_s("%lf", &a);
+	scanf_s("%lf", &b);
 	double result;
 
 	// 두 수의 합을 구하는 함수 호출
